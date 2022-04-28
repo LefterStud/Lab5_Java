@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.classes.Triangle;
+
 /**
  * Lefter Olexiy, 18
  */
@@ -13,6 +15,18 @@ public class Main {
      * найти треугольники с максимальной иS минимальной площадью и вывести номера одинаковых прямоугольных треугольников.
      * */
     public static void main(String[] args) {
+        double random = (int)(Math.random()*100+1);
+        final Triangle triangle1 = new Triangle((int)(Math.random()*100+1), (int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1));
+        final Triangle triangle2 = new Triangle((int)(Math.random()*100+1), (int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1));
+        final Triangle triangle3 = new Triangle((int)(Math.random()*100+1), (int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1));
+        final Triangle triangle4 = new Triangle((int)(Math.random()*100+1), (int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1));
+        final Triangle triangle5 = new Triangle((int)(Math.random()*100+1), (int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1),(int)(Math.random()*100+1));
+        System.out.println(triangle1);
+        System.out.println(triangle2);
+        System.out.println(triangle3);
+        System.out.println(triangle4);
+        System.out.println(triangle5);
+        //todo Make array of Triangles
 
     }
 }
