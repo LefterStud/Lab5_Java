@@ -1,43 +1,43 @@
 package com.company.classes;
 
 public class Triangle {
-    private double x1;
-    private double x2;
-    private double x3;
-    private double y1;
-    private double y2;
-    private double y3;
+    private int x1;
+    private int x2;
+    private int x3;
+    private int y1;
+    private int y2;
+    private int y3;
 
-    public Triangle(double x1, double x2, double x3, double y1, double y2, double y3) {
+    public Triangle(final int x1, final int y1, final int x2, final int y2, final int x3, final int y3) {
+        this.setX1(x1);
+        this.setY1(y1);
+        this.setX2(x2);
+        this.setY2(y2);
+        this.setX3(x3);
+        this.setY3(y3);
+    }
+
+    protected void setX1(int x1) {
         this.x1 = x1;
-        this.x2 = x2;
-        this.x3 = x3;
-        this.y1 = y1;
-        this.y2 = y2;
-        this.y3 = y3;
     }
 
-    public void setX1(double x1) {
-        this.x1 = x1;
-    }
-
-    public void setX2(double x2) {
+    protected void setX2(int x2) {
         this.x2 = x2;
     }
 
-    public void setX3(double x3) {
+    protected void setX3(int x3) {
         this.x3 = x3;
     }
 
-    public void setY1(double y1) {
+    protected void setY1(int y1) {
         this.y1 = y1;
     }
 
-    public void setY2(double y2) {
+    protected void setY2(int y2) {
         this.y2 = y2;
     }
 
-    public void setY3(double y3) {
+    protected void setY3(int y3) {
         this.y3 = y3;
     }
 
@@ -65,6 +65,38 @@ public class Triangle {
         return y3;
     }
 
+    public static double getSideSize(int x1, int y1, int x2, int y2) {
+        return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+    }
+
+    public double getASideSize() {
+        return Math.sqrt(Math.pow((getX2() - getX1()), 2) + Math.pow((getY2() - getY1()), 2));
+    }
+
+    public double getBSideSize() {
+        return Math.sqrt(Math.pow((getX3() - getX2()), 2) + Math.pow((getY3() - getY2()), 2));
+    }
+
+    public double getCSideSize() {
+        return Math.sqrt(Math.pow((getX1() - getX3()), 2) + Math.pow((getY1() - getY3()), 2));
+    }
+
+    public double getPerimeter() {
+        return getASideSize() + getBSideSize() + getCSideSize();
+    }
+
+    public double getSquare() {
+        double p = getPerimeter() / 2;
+        return Math.sqrt(p * (p - getASideSize()) * (p - getBSideSize()) * (p - getCSideSize()));
+    }
+
+    public static boolean isExistTriangle(int x1, int y1, int x2, int y2, int x3, int y3) {
+        double A = getSideSize(x1, y1, x2, y2);
+        double B = getSideSize(x3, y3, x2, y2);
+        double C = getSideSize(x1, y1, x3, y3);
+        return (A + B > C) && (B + C > A) && (A + C > B);
+    }
+
     @Override
     public String toString() {
         return "Triangle{" +
@@ -74,49 +106,13 @@ public class Triangle {
                 ", y1=" + y1 +
                 ", y2=" + y2 +
                 ", y3=" + y3 +
+                ", aSide=" + getASideSize() +
+                ", bSide=" + getBSideSize() +
+                ", cSide=" + getCSideSize() +
+                ", perimeter=" + getPerimeter() +
+                ", square=" + getSquare() +
                 '}';
     }
-//    @Override
-//    public String toString() {
-//        return "Triangle{" +
-//                "aSide=" + aSide +
-//                ", bSide=" + bSide +
-//                ", cSide=" + cSide +
-//                '}';
-//    }
-//
-//    private double aSide;
-//    private double bSide;
-//    private double cSide;
-//
-//    public Triangle(final double x1, final double x2, final double x3, final double y1, final double y2, final double y3) {
-//        this.setASide(x1, y1, x2, y2);
-//        this.setBSide(x3, y3, x2, y2);
-//        this.setCSide(x1, y1, x3, y3);
-//    }
-//
-//    public void setASide(double x1, double y1, double x2, double y2) {
-//        this.aSide = Math.sqrt(Math.pow((x2-x1),2)+Math.pow((y2-y1),2));
-//    }
-//
-//    public void setBSide(double x3, double y3, double x2, double y2) {
-//        this.bSide = Math.sqrt(Math.pow((x3-x2),2)+Math.pow((y3-y2),2));
-//    }
-//
-//    public void setCSide(double x1, double y1, double x3, double y3) {
-//        this.cSide = Math.sqrt(Math.pow((x1 - x3), 2) + Math.pow((y1 - y3), 2));
-//    }
-//
-//    public double getASide() {
-//        return aSide;
-//    }
-//
-//    public double getBSide() {
-//        return bSide;
-//    }
-//
-//    public double getCSide() {
-//        return cSide;
-//    }
+
 }
 
