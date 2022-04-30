@@ -81,6 +81,18 @@ public class Triangle {
         return Math.sqrt(Math.pow((getX1() - getX3()), 2) + Math.pow((getY1() - getY3()), 2));
     }
 
+    public double getA1Angle() {
+        return Math.acos((Math.pow(getASideSize(), 2) + Math.pow(getBSideSize(), 2) - Math.pow(getCSideSize(), 2)) / (2 * getASideSize() * getBSideSize())) * 57.2957795;
+    }
+
+    public double getA2Angle() {
+        return Math.acos((Math.pow(getBSideSize(), 2) + Math.pow(getCSideSize(), 2) - Math.pow(getASideSize(), 2)) / (2 * getBSideSize() * getCSideSize())) * 57.2957795;
+    }
+
+    public double getA3Angle() {
+        return Math.acos((Math.pow(getASideSize(), 2) + Math.pow(getCSideSize(), 2) - Math.pow(getBSideSize(), 2)) / (2 * getASideSize() * getCSideSize())) * 57.2957795;
+    }
+
     public double getPerimeter() {
         return getASideSize() + getBSideSize() + getCSideSize();
     }
@@ -101,16 +113,19 @@ public class Triangle {
     public String toString() {
         return "Triangle{" +
                 "x1=" + x1 +
-                ", x2=" + x2 +
-                ", x3=" + x3 +
-                ", y1=" + y1 +
-                ", y2=" + y2 +
-                ", y3=" + y3 +
-                ", aSide=" + getASideSize() +
-                ", bSide=" + getBSideSize() +
-                ", cSide=" + getCSideSize() +
-                ", perimeter=" + getPerimeter() +
-                ", square=" + getSquare() +
+                "; x2=" + x2 +
+                "; x3=" + x3 +
+                "; y1=" + y1 +
+                "; y2=" + y2 +
+                "; y3=" + y3 +
+                "; aSide=" + String.format("%.2f", getASideSize()) +
+                "; bSide=" + String.format("%.2f", getBSideSize()) +
+                "; cSide=" + String.format("%.2f", getCSideSize()) +
+                "; perimeter=" + String.format("%.2f", getPerimeter()) +
+                "; square=" + String.format("%.2f", getSquare()) +
+                "; angle1=" + String.format("%.2f", getA1Angle()) +
+                "; angle2=" + String.format("%.2f", getA2Angle()) +
+                "; angle3=" + String.format("%.2f", getA3Angle()) +
                 '}';
     }
 
