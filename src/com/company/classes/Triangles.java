@@ -18,7 +18,7 @@ public class Triangles {
     public Triangle findMaxSquareTriangle() {
         Triangle maxTriangle = triangles[0];
         for (int i = 1; i < triangles.length; i++) {
-            if (triangles[i].getSquare() >= maxTriangle.getSquare()) {
+            if (triangles[i].getSquare() > maxTriangle.getSquare()) {
                 maxTriangle = triangles[i];
             }
         }
@@ -28,7 +28,7 @@ public class Triangles {
     public Triangle findMinSquareTriangle() {
         Triangle minTriangle = triangles[0];
         for (int i = 1; i < triangles.length; i++) {
-            if (triangles[i].getSquare() <= minTriangle.getSquare()) {
+            if (triangles[i].getSquare() < minTriangle.getSquare()) {
                 minTriangle = triangles[i];
             }
         }
@@ -37,18 +37,15 @@ public class Triangles {
 
     public String findSameTriangles() {
         String numberSameTriangles = "";
-        Triangle sameTriangle = triangles[0];
-        int k = 0;
-        for (int i = 1; i < triangles.length; i++) {
-            if ((triangles[i].getASideSize()) == (sameTriangle.getASideSize()) && ((triangles[i].getBSideSize()) == (sameTriangle.getBSideSize())) && ((triangles[i].getCSideSize()) == (sameTriangle.getCSideSize()))) {
-                k += 1;
-                if (k == 1) {
-                    numberSameTriangles += i + " ";
+        for (int i = 0; i < triangles.length; i++) {
+            for (int j = 1; j < triangles.length; j++) {
+                if ((triangles[i].getASideSize()) == (triangles[j].getASideSize()) && ((triangles[i].getBSideSize()) == (triangles[j].getBSideSize())) && ((triangles[i].getCSideSize()) == (triangles[j].getCSideSize()) && i != j)) {
+                    numberSameTriangles+=(i+1)+" ";
+                    break;
                 }
-                numberSameTriangles += i + 1 + " ";
             }
-            sameTriangle = triangles[i];
         }
+
         return numberSameTriangles;
     }
 

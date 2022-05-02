@@ -49,6 +49,8 @@ public class Main {
         rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 5, 5, 0));
         rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 5, 5, 0));
 
+
+
         System.out.println(rightTriangles);
         System.out.println("-----------------------------------");
         System.out.println("\nMax of Triangles:");

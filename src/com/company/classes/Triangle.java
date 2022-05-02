@@ -73,13 +73,14 @@ public class Triangle {
         return Math.sqrt(Math.pow((getX2() - getX1()), 2) + Math.pow((getY2() - getY1()), 2));
     }
 
+    public double getCSideSize() {
+        return Math.sqrt(Math.pow((getX1() - getX3()), 2) + Math.pow((getY1() - getY3()), 2));
+    }
+
     public double getBSideSize() {
         return Math.sqrt(Math.pow((getX3() - getX2()), 2) + Math.pow((getY3() - getY2()), 2));
     }
 
-    public double getCSideSize() {
-        return Math.sqrt(Math.pow((getX1() - getX3()), 2) + Math.pow((getY1() - getY3()), 2));
-    }
 
     public double getA1Angle() {
         return Math.acos((Math.pow(getASideSize(), 2) + Math.pow(getBSideSize(), 2) - Math.pow(getCSideSize(), 2)) / (2 * getASideSize() * getBSideSize())) * 57.2957795;
