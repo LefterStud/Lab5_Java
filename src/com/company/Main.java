@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
         final int MAX_SIDE_SIZE = 100;
         final int N = 10;
-        final int M = 10;
+        final int M = 1;
 
         Triangles triangles = new Triangles(N);
         int tempX1;
@@ -32,23 +32,28 @@ public class Main {
         for (int i = 0; i < N; i++) {
             while (!Triangle.isExistTriangle(tempX1 = (int) (Math.random() * MAX_SIDE_SIZE) - 50, tempY1 = (int) (Math.random() * MAX_SIDE_SIZE) - 50, tempX2 = (int) (Math.random() * MAX_SIDE_SIZE) - 50, tempY2 = (int) (Math.random() * MAX_SIDE_SIZE) - 50, tempX3 = (int) (Math.random() * MAX_SIDE_SIZE) - 50, tempY3 = (int) (Math.random() * MAX_SIDE_SIZE) - 50)) {
             }
-            Triangle triangle = new Triangle(tempX1, tempY1, tempX2, tempY2, tempX3, tempY3);
-            triangles.addTriangle(triangle);
+            triangles.addTriangle(new Triangle(tempX1, tempY1, tempX2, tempY2, tempX3, tempY3));
         }
         System.out.println(triangles);
 
-        Triangles rightTriangles = new Triangles(M + 4);
+        Triangles rightTriangles = new Triangles(M + 12);
+        rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 5, 5, 0));
+        rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 5, 5, 0));
+        rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 8, 8, 0));
+        rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 6, 6, 0));
+        rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 6, 6, 0));
         for (int i = 0; i < M; i++) {
             while (!RightTriangle.isRightTriangle(tempX1 = (int) (Math.random() * MAX_SIDE_SIZE) - 50, tempY1 = (int) (Math.random() * MAX_SIDE_SIZE) - 50, tempX2 = (int) (Math.random() * MAX_SIDE_SIZE) - 50, tempY2 = (int) (Math.random() * MAX_SIDE_SIZE) - 50, tempX3 = (int) (Math.random() * MAX_SIDE_SIZE) - 50, tempY3 = (int) (Math.random() * MAX_SIDE_SIZE) - 50)) {
             }
-            RightTriangle rightTriangle = new RightTriangle(tempX1, tempY1, tempX2, tempY2, tempX3, tempY3);
-            rightTriangles.addTriangle(rightTriangle);
+            rightTriangles.addTriangle(new RightTriangle(tempX1, tempY1, tempX2, tempY2, tempX3, tempY3));
         }
         rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 5, 5, 0));
+        rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 6, 6, 0));
         rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 5, 5, 0));
         rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 5, 5, 0));
-        rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 5, 5, 0));
-
+        rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 6, 6, 0));
+        rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 8, 8, 0));
+        rightTriangles.addTriangle(new RightTriangle(0, 0, 0, 8, 8, 0));
 
 
         System.out.println(rightTriangles);

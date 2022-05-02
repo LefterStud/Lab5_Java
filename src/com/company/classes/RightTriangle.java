@@ -9,7 +9,7 @@ public class RightTriangle extends Triangle {
         double A = getSideSize(x1, y1, x2, y2);
         double B = getSideSize(x3, y3, x2, y2);
         double C = getSideSize(x1, y1, x3, y3);
-        return (A + B > C) && (B + C > A) && (A + C > B) && (A > 0) && (B > 0) && (C > 0) && ((A * A + B * B == C * C) || (B * B + C * C == A * A) || (A * A + C * C == B * B));
+        return Triangle.isExistTriangle(x1, y1, x2, y2, x3, y3) && ((A * A + B * B == C * C) || (B * B + C * C == A * A) || (A * A + C * C == B * B));
     }
 
     @Override

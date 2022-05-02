@@ -37,17 +37,27 @@ public class Triangles {
 
     public String findSameTriangles() {
         String numberSameTriangles = "";
+        boolean[] sameArray = new boolean[triangles.length];
+        boolean isFirstEqual;
         for (int i = 0; i < triangles.length; i++) {
-            for (int j = 1; j < triangles.length; j++) {
-                if ((triangles[i].getASideSize()) == (triangles[j].getASideSize()) && ((triangles[i].getBSideSize()) == (triangles[j].getBSideSize())) && ((triangles[i].getCSideSize()) == (triangles[j].getCSideSize()) && i != j)) {
-                    numberSameTriangles+=(i+1)+" ";
-                    break;
+            isFirstEqual = true;
+            for (int j = i + 1; j < triangles.length; j++) {
+                if ((!sameArray[j]) && (triangles[j].getASideSize()) == (triangles[i].getASideSize()) && ((triangles[j].getBSideSize()) == (triangles[i].getBSideSize())) && ((triangles[j].getCSideSize()) == (triangles[i].getCSideSize()))) {
+                    sameArray[j] = true;
+                    if (isFirstEqual) {
+                        isFirstEqual = false;
+                        numberSameTriangles += (i + 1) + " ";
+                    }
+                    numberSameTriangles += (j + 1) + " ";
                 }
             }
+            numberSameTriangles += "\n";
         }
-
         return numberSameTriangles;
     }
+    //1 2 7 9 10
+    //3 12 13
+    //4 5 8 11
 
     @Override
     public String toString() {
