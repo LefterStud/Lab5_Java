@@ -49,11 +49,13 @@ public class Triangles {
                         numberSameTriangles += (i + 1) + " ";
                     }
                     numberSameTriangles += (j + 1) + " ";
+
                 }
             }
             numberSameTriangles += "\n";
         }
         return numberSameTriangles;
+//        0123456789
     }
     //1 2 7 9 10
     //3 12 13

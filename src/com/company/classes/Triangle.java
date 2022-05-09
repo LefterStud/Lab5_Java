@@ -127,7 +127,7 @@ public class Triangle {
                 "; angle1=" + String.format("%.2f", getA1Angle()) +
                 "; angle2=" + String.format("%.2f", getA2Angle()) +
                 "; angle3=" + String.format("%.2f", getA3Angle()) +
-                '}';
+                "}\n";
     }
 
 }
